@@ -17,9 +17,11 @@ const ProductInfoCard = ({ product, handleClose }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div
+      className="bg-white rounded-lg shadow-lg overflow-hidden "
+      style={{ scrollbarWidth: "none" }}>
       {/* Name and Close Button */}
-      <div className="md:p-6 p-1 flex items-center justify-between bg-gray-100">
+      <div className="md:p-6 p-1 flex items-center justify-between sm:bg-gray-100">
         <h3 className="text-lg hidden md:block font-semibold text-gray-800">
           {product.name}
         </h3>
@@ -30,7 +32,7 @@ const ProductInfoCard = ({ product, handleClose }) => {
         </button>
       </div>
       {/* Product Image and Info Area */}
-      <div className="p-6 flex flex-col md:flex-row">
+      <div className="sm:p-6 py-2 px-3 flex flex-col md:flex-row">
         {/* Image */}
         <img
           src={product.image}
@@ -40,7 +42,7 @@ const ProductInfoCard = ({ product, handleClose }) => {
         {/* Info Main Area */}
         <div className="md:ml-6 flex flex-col justify-between">
           <div>
-            <h2 className="text-xl font-bold">{product.name}</h2>
+            <h2 className="sm:text-xl text-lg font-bold">{product.name}</h2>
             {/* Price Area */}
             <div className="flex items-center mt-2">
               <span
@@ -65,7 +67,7 @@ const ProductInfoCard = ({ product, handleClose }) => {
                 {product.availability ? "Available" : "Sold Out"}
               </span>
             </div>
-            <p className="mt-1 text-sm text-gray-600">
+            <p className="mt-2 text-sm text-gray-600">
               Tax included. Shipping calculated at checkout.
             </p>
             {/* Size Area */}
