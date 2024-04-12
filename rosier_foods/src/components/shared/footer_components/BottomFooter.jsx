@@ -2,7 +2,7 @@ import React from "react";
 
 const BottomFooter = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start mt-10 space-y-8 md:space-y-0 md:space-x-8 border-t border-gray-200 pt-10">
+    <div className="flex flex-col md:flex-row justify-center md:justify-between items-center md:items-start mt-6 space-y-5 md:space-y-0 md:space-x-8 border-t border-gray-200 pt-5">
       {/* Helpful Links */}
       <div className="text-center md:text-left">
         <h2 className="text-xl  font-bold text-gray-300 mb-4 ">

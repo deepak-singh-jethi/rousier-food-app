@@ -5,7 +5,7 @@ import ProductCard from "../shared/ProductCard";
 const BestSeller = () => {
   return (
     <>
-      <div className="container mx-auto px-4 flex justify-between pt-20 md:pb-4 pb-3">
+      <div className="container mx-auto px-4 flex justify-between md:pt-20 pt-10 md:pb-4 pb-3">
         <h1 className="text-[#2f2f2f] md:text-3xl text-lg font-bold font-serif">
           Best sellers
         </h1>
@@ -15,7 +15,7 @@ const BestSeller = () => {
           </button>
         </p>
       </div>
-      <div className="w-full overflow-x-hidden md:mt-10 mt-2 mb-40 px-3">
+      <div className="w-full overflow-x-hidden md:mt-10 mt-2 mb-16 px-3">
         <div
           className="flex overflow-x-scroll container mx-auto gap-4"
           style={{ scrollbarWidth: "none" }}>

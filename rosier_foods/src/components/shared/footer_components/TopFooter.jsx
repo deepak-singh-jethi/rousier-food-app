@@ -3,13 +3,13 @@ import logo from "../../../assets/logo1.png";
 
 const TopFooter = () => {
   return (
-    <div className="flex flex-col gap-6 md:gap-0 md:flex-row justify-center md:justify-around items-center space-y-4 md:space-y-0 md:space-x-8">
+    <div className="flex flex-col gap-2 md:gap-0 md:flex-row justify-center md:justify-around items-center space-y-4 md:space-y-0 md:space-x-8">
       {/* Logo Section */}
       <div className="md:w-1/5">
         <img
           src={logo}
           alt="logo"
-          className="h-auto max-h-28 md:max-h-30 cursor-pointer"
+          className="h-auto max-h-20 md:max-h-30 cursor-pointer"
         />
       </div>
       {/* Text Section */}
