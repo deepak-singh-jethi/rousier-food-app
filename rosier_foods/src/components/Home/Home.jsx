@@ -4,6 +4,8 @@ import BestSeller from "./BestSeller";
 import CategoryArea from "./CategoryArea";
 import heroImage2 from "../../assets/homehero2.png";
 import WhyRosier from "./WhyRosier";
+import CookingRosier from "./CookingRosier";
+import Community from "./Community";
 
 const Home = () => {
   return (
@@ -13,6 +15,8 @@ const Home = () => {
       <CategoryArea />
       <img src={heroImage2} className="mt-10" alt="save planet" />
       <WhyRosier />
+      <CookingRosier />
+      <Community />
     </div>
   );
 };
