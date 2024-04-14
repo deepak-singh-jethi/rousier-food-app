@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { recipies } from "../../Data/Recipies";
 import RecipeCard from "../shared/RecipeCard";
+import { NavLink } from "react-router-dom";
 
 const CookingRosier = () => {
   const [selectedIndexes, setSelectedIndexes] = useState([0, 1, 2]);
@@ -64,9 +65,11 @@ const CookingRosier = () => {
         </button>
       </div>
       <div className="text-center md:mt-10 mt-4">
-        <button className="bg-[#E7926C] px-3 py-2 rounded-lg hover:bg-blue-600 hover:text-white">
-          View all
-        </button>
+        <NavLink to="/letsCook">
+          <button className="bg-[#E7926C] px-3 py-2 rounded-lg hover:bg-blue-600 hover:text-white">
+            View all
+          </button>
+        </NavLink>
       </div>
     </div>
   );

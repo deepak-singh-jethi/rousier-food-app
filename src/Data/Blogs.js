@@ -10,6 +10,7 @@ export const blogPosts = [
     title: "Keeping Your Heart Healthy: Tips for a Stronger, Healthier Heart",
     date: "APRIL 5, 2024",
     image: heart,
+    id: 2345432534,
     content: [
       {
         heading: "Maintain a Balanced Diet",
@@ -49,6 +50,7 @@ export const blogPosts = [
     title: "Raw Honey for Immunity: Health Benefits",
     date: "APRIL 5, 2024",
     image: honey,
+    id: 2345432327578,
     content: [
       {
         heading: "What Makes Raw Honey Unique?",
@@ -89,6 +91,7 @@ export const blogPosts = [
     title: "Mindful Munching: The Art of Eating with Awareness and Intention",
     date: "APRIL 4, 2024",
     image: mindful,
+    id: 3234432327578,
     content: [
       {
         heading: "What is Mindful Munching?",
@@ -128,6 +131,7 @@ export const blogPosts = [
       "Summer Approaches: Strategies to Adapt to the Weather Shift and Maintain Summer Wellness",
     date: "APRIL 4, 2024",
     image: summer,
+    id: 23459900078,
     content: [
       {
         heading: "Stay Hydrated",
@@ -163,6 +167,7 @@ export const blogPosts = [
     title: "All You Need to Know About Going Organic",
     date: "APRIL 4, 2024",
     image: organic,
+    id: 11123452345,
     content: [
       {
         heading: "What Does 'Organic' Mean?",
@@ -195,6 +200,7 @@ export const blogPosts = [
     title: "A2 Ghee: Liquid Gold for Your Health",
     date: "APRIL 5, 2024",
     image: a2ghee,
+    id: 2354236543,
     content: [
       {
         heading: "What is A2 Ghee?",

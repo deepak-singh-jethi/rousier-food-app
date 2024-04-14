@@ -3,7 +3,7 @@ import { category } from "../../Data/category";
 
 const CategoryArea = () => {
   return (
-    <div className="pb-20 md:my-40 container sm:mx-auto px-2 ">
+    <div className="pb-10 md:my-24 container sm:mx-auto px-2 ">
       <h1 className="text-center mt-20 mb-10 text-lg sm:text-xl md:text-4xl font-bold font-serif line-before-after">
         Shop By Category
       </h1>
