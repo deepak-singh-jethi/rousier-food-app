@@ -88,27 +88,28 @@ const ProductInfoCard = ({ product, handleClose }) => {
                   </button>
                 ))}
               </div>
+              {/* Quantity Area */}
+              <div className="mt-4">
+                <p className="text-sm font-semibold">Quantity</p>
+                <div className="flex items-center mt-1">
+                  <button
+                    className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-l focus:outline-none"
+                    onClick={() => handleQuantityChange("decrement")}>
+                    -
+                  </button>
+                  <span className="w-8 h-8 flex items-center justify-center text-sm font-semibold">
+                    {quantity}
+                  </span>
+                  <button
+                    className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-r focus:outline-none"
+                    onClick={() => handleQuantityChange("increment")}>
+                    +
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          {/* Quantity Area */}
-          <div className="mt-4">
-            <p className="text-sm font-semibold">Quantity</p>
-            <div className="flex items-center mt-1">
-              <button
-                className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-l focus:outline-none"
-                onClick={() => handleQuantityChange("decrement")}>
-                -
-              </button>
-              <span className="w-8 h-8 flex items-center justify-center text-sm font-semibold">
-                {quantity}
-              </span>
-              <button
-                className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-r focus:outline-none"
-                onClick={() => handleQuantityChange("increment")}>
-                +
-              </button>
-            </div>
-          </div>
+
           {/* Add to Cart Button */}
           <button
             className={`mt-4 py-2 bg-blue-500 ${

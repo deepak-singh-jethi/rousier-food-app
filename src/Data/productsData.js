@@ -4,7 +4,7 @@ import nutButterDarkChocolate from "../assets/products/nutbutter_dark_chocolate 
 import nutButterMixedSeed from "../assets/products/nutbutter_mixed_seed.jpg";
 import stonePressedBlackMustardOil from "../assets/products/stone_pressed_blackmustard_oil.jpg";
 import groundNutOil from "../assets/products/stone_pressed_groundnut_oil.jpg";
-import coconutOil from "../assets/products/stone_pressed_coconut_oil.png";
+import coconutOil from "../assets/products/coconut.webp";
 import wildForestHoney from "../assets/products/wildforest_honey.jpg";
 import multiFloraHoney from "../assets/products/multiflora_honey.jpg";
 import amlaprash from "../assets/products/amlaprash.jpg";

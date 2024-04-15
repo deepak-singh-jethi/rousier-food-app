@@ -9,8 +9,8 @@ const ContactUs = () => {
   return (
     <div>
       <img src={coverImage} alt="cover page" />
-      <div className="bg-[#69A19E] text-center text-white">
-        <h2 className="py-6 font-serif text-xl md:text-3xl lg:text-4xl ">
+      <div className="bg-[#69A19E] text-center text-white md:py-24">
+        <h2 className="py-6  font-serif text-xl md:text-3xl lg:text-4xl  ">
           Contact Us
         </h2>
         <div className="max-w-[650px] mx-auto w-full">
@@ -20,7 +20,7 @@ const ContactUs = () => {
           </p>
         </div>
         <form
-          className="max-w-[500px] mx-auto py-6 sm:px-0 px-3"
+          className="max-w-[500px] mx-auto py-6 sm:px-0 px-3 text-black"
           onSubmit={handleSubmit}>
           <div className="flex gap-0 md:gap-4 flex-col md:flex-row">
             <input type="text" placeholder="Name" className="w-full p-2 my-2" />
@@ -35,8 +35,8 @@ const ContactUs = () => {
 
           <textarea
             placeholder="Message"
-            className="w-full p-2 my-2"></textarea>
-          <button className="bg-[#fff] hover:bg-slate-200 px-3 py-2 my-2 text-black rounded-lg mt-3">
+            className="w-full p-2 my-2 "></textarea>
+          <button className="bg-[#fff] hover:bg-slate-200 px-4 py-2 my-2 text-black rounded-lg mt-3">
             Send
           </button>
         </form>

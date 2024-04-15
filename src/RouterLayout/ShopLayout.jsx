@@ -4,8 +4,6 @@ import Shop from "../components/Shop";
 
 const ShopLayout = () => {
   const { category } = useParams();
-  console.log(category);
-
   return <Shop category={category}></Shop>;
 };
 
