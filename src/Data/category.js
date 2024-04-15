@@ -6,12 +6,12 @@ import all from "../assets/category/all.png";
 import nutbutter from "../assets/category/nutbutter.jpg";
 
 export const category = [
-  { title: "Ghee", image: Ghee },
-  { title: "Oil", image: oil },
-  { title: "Super Food", image: superFood },
-  { title: "Honey", image: honey },
-  { title: "All", image: all },
-  { title: "Nut Butter", image: nutbutter },
+  { category: "Ghee", image: Ghee },
+  { category: "Oil", image: oil },
+  { category: "Jam", image: superFood },
+  { category: "Honey", image: honey },
+  { category: "", image: all },
+  { category: "Butter", image: nutbutter },
 ];
 
 // later add id's of perticular category in objects
