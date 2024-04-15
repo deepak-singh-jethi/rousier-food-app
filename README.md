@@ -1,6 +1,6 @@
-Certainly! Here's the README content formatted in Git markdown for better readability:
 
-```markdown
+
+
 # Rosier Foods
 
 ## Overview
@@ -8,7 +8,6 @@ Rosier Foods is a private project built using modern JavaScript technologies inc
 
 ## Getting Started
 To get started with Rosier Foods, follow these steps:
-
 
 
 1. **Clone Repository**: Clone this repository to your local machine.
