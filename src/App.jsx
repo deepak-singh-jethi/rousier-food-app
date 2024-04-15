@@ -14,6 +14,7 @@ import OurStory from "./RouterLayout/OurStory";
 import ContactUs from "./RouterLayout/ContactUs";
 import Blogs from "./components/Blogs";
 import Recipie from "./components/Recipie";
+import Shop from "./RouterLayout/Shop";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,9 @@ const router = createBrowserRouter(
       </Route>
       <Route path="ourStory" element={<OurStory />} />
       <Route path="contactUs" element={<ContactUs />} />
+      <Route path="shop">
+        <Route index element={<Shop />} />
+      </Route>
     </Route>
   )
 );
