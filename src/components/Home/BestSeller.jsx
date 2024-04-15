@@ -1,6 +1,6 @@
 import React from "react";
 import { products } from "../../Data/productsData";
-import ProductCard from "../shared/ProductCard";
+import ProductCard from "../Layout/ProductCard";
 
 const BestSeller = () => {
   return (

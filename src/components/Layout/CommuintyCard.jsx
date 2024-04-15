@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CommunityCard = ({ blog }) => {
   return (
-    <div className="max-w-xs rounded-xl  overflow-hidden shadow-lg m-4 bg-[#f6bf66] w-full mx-auto ">
+    <div className="max-w-xs rounded-xl   overflow-hidden shadow-lg m-4 bg-[#c1ff9b] w-full mx-auto ">
       <div className="aspect-w-16 aspect-h-9">
         <img
           className="object-cover object-center w-full h-full"
@@ -15,9 +16,11 @@ const CommunityCard = ({ blog }) => {
         <div className="font-bold text-md md:text-xl mb-2">
           {blog.title.substring(0, 50) + "..."}
         </div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 md:py-2 md:px-4 rounded mt-2">
+        <Link
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 md:py-2 md:px-4 rounded mt-2"
+          to={`/community/${blog.id}`}>
           See More
-        </button>
+        </Link>
       </div>
     </div>
   );

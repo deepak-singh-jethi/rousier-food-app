@@ -15,7 +15,7 @@ const OfferBanner = () => {
   }, [selectedBannerIndex]);
 
   return (
-    <div className="w-full bg-[#F5DB72] sm:h-16 h-14 text-center">
+    <div className="w-full bg-[#F5DB72] sm:h-14 h-12 text-center">
       <h1 className="text-[#130602] font-medium text:lg sm:text-2xl pt-5 sm:pt-3">
         {bannerData[selectedBannerIndex]}
       </h1>

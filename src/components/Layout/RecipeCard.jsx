@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const RecipeCard = ({ recipe }) => {
   return (
     <div
       key={recipe.title}
-      className="bg-[#f8e693] rounded-lg w-[80%] sm:w-[100%] shadow-md hover:shadow-xl transition duration-300 ml-10 sm:ml-0">
+      className="bg-[#F3B954] rounded-lg w-[80%] sm:w-[100%] shadow-md hover:shadow-xl transition duration-300 ml-10 sm:ml-0">
       <img
         src={recipe.image}
         alt={recipe.title}
@@ -14,11 +15,11 @@ const RecipeCard = ({ recipe }) => {
         <h2 className="text-lg md:text-xl font-semibold mb-2">
           {recipe.title}
         </h2>
-        <a
-          href="#"
+        <Link
+          to={`/letsCook/${recipe.id}`}
           className="block text-blue-500 font-semibold hover:underline">
           View Recipe
-        </a>
+        </Link>
       </div>
     </div>
   );

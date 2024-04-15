@@ -10,6 +10,7 @@ export const recipies = [
     title: "Nutty Banana Breakfast Bowl",
     image: breakfast,
     date: "APRIL 5, 2024",
+    id: 5823458234857,
     description:
       "Kickstart your morning with a Nutty Banana Breakfast Bowl that is not only delicious but also loaded with nutrients to fuel your day ahead. This breakfast bowl combines the creaminess of nut butter, the natural sweetness of bananas, the crunch of dry fruits, and the wholesome goodness of muesli to create a satisfying and nutritious meal.",
     ingredients: [
@@ -46,6 +47,7 @@ export const recipies = [
     title: "Gajar Ka Halwa",
     date: "APRIL 5, 2024",
     image: halwa,
+    id: 588999954857,
     description:
       "Gajar ka Halwa, also known as Carrot Halwa, is a traditional Indian dessert that is loved by everyone for its rich, creamy, and indulgent taste. Elevate this classic dessert by using Rosier A2 ghee, known for its health benefits and aromatic flavor. This Rosier A2 Ghee Gajar Ka Halwa recipe is not only delicious but also packed with the goodness of carrots and the richness of A2 ghee. Let’s dive into the recipe!",
     ingredients: [
@@ -84,6 +86,7 @@ export const recipies = [
     title: "Honey Roasted Peanuts",
     date: "MARCH 19, 2024",
     image: honeypeanut,
+    id: 582345820000,
     description:
       "Looking for a quick, easy, and irresistibly delicious snack? Look no further! These honey roasted peanuts are the perfect combination of sweet and salty, making them a crowd-pleasing treat for any occasion. Made with just a few simple ingredients, this recipe is sure to become a favorite in your household. Let’s get roasting!",
     ingredients: [
@@ -115,6 +118,7 @@ export const recipies = [
     title: "Honey Glazed Carrots",
     date: "MARCH 19, 2024",
     image: honeycarrot,
+    id: 5823458287400,
     description:
       "If you're looking for a simple yet flavorful side dish that's both nutritious and delicious, look no further than Honey Glazed Carrots! This dish combines the natural sweetness of carrots with the rich, golden flavor of honey, resulting in a mouthwatering side that pairs perfectly with a variety of main courses. Plus, it's incredibly easy to make! Read on to discover our foolproof recipe for Honey Glazed Carrots.",
     ingredients: [
@@ -146,6 +150,7 @@ export const recipies = [
     title: "Eggless Ghee Cake",
     date: "MARCH 19, 2024",
     image: gheecake,
+    id: 453458287400,
     description:
       "Craving a moist and flavorful cake but looking for an eggless option? This Eggless Ghee Cake is the perfect solution! Baked to perfection with the richness of A2 ghee, this cake is soft, moist, and absolutely delicious. Follow this simple recipe to create a delightful treat that will impress your friends and family.",
     ingredients: [
@@ -182,6 +187,7 @@ export const recipies = [
     title: "Breakfast Crepes",
     date: "MARCH 18, 2024",
     image: crepes,
+    id: 453543862800,
     description:
       "Start your day on a sweet note with these Breakfast Crepes! Light, thin, and delicately flavored, these crepes are a delightful twist on the classic breakfast favorite. Fill them with your favorite fruits, nuts, or a dollop of creamy yogurt to create a wholesome and delicious morning meal. Here’s how to make them:",
     ingredients: [

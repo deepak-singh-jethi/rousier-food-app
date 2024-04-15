@@ -14,13 +14,13 @@ const TopFooter = () => {
       </div>
       {/* Text Section */}
       <div className=" md:text-left flex-1 ">
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center">
+        <h1 className="text-lg sm:text-2xl md:text-3xl font-bold text-white text-center">
           “We are reviving the traditional ways of old Bharat”
         </h1>
       </div>
       {/* Subscription Section */}
       <div className="flex flex-col items-center md:items-start md:w-1/3">
-        <h1 className="text-white mb-2 text-xl  font-bold">
+        <h1 className="text-white mb-1 md:text-xl text-lg font-bold">
           Subscribe to our Newsletter
         </h1>
         <div className="flex items-center">
@@ -28,7 +28,7 @@ const TopFooter = () => {
             id="email"
             type="email"
             placeholder="Your email address"
-            className="px-4 py-2 w-full md:w-auto rounded-md focus:outline-none focus:ring-2 focus:ring-white border border-gray-300"
+            className="px-4 py-2 w-full md:w-auto rounded-md focus:outline-none focus:ring-2 focus:ring-white border border-gray-300 text-md md:text-lg"
           />
           <button className="text-white  rounded-lg ml-2 transitiotext-white text-semibold text-lg ease-in-out">
             &#9993;
