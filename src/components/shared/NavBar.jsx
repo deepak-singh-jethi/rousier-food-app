@@ -1,17 +1,24 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import OfferBanner from "./OfferBanner";
 import logo1 from "../../assets/logo1.png";
 import cartLogo from "../../assets/cartLogo.png";
 import user from "../../assets/user.png";
 import burger from "../../assets/burger.png";
+import cartActions from "../../store/cart";
 
 const NavBar = () => {
+  const dispatch = useDispatch();
   const [isSideNavVisible, setSideNavVisible] = useState(false);
   const [isSubLinksOpen, setIsSubLinksOpen] = useState(false);
 
   const handleSubLinks = () => {
     setIsSubLinksOpen(!isSubLinksOpen);
+  };
+
+  const closeSubLinks = () => {
+    setIsSubLinksOpen(false);
   };
 
   const toggleSideNav = () => {
@@ -46,13 +53,19 @@ const NavBar = () => {
         </div>
         <ul className="ml-6 hidden lg:flex gap-8 text-lg md:text-xl font-medium text-[#F9E2D7]">
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" onClick={closeSubLinks}>
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/ourStory">Our Story</NavLink>
+            <NavLink to="/ourStory" onClick={closeSubLinks}>
+              Our Story
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/shop">Shop</NavLink>
+            <NavLink to="/shop" onClick={closeSubLinks}>
+              Shop
+            </NavLink>
           </li>
           <li className="relative">
             <button onClick={handleSubLinks}>Blogs</button>
@@ -68,12 +81,12 @@ const NavBar = () => {
             )}
           </li>
           <li>
-            <NavLink to="/trackOrder" onClick={closeSideNav}>
+            <NavLink to="/trackOrder" onClick={closeSubLinks}>
               Track Order
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contactUs" onClick={closeSideNav}>
+            <NavLink to="/contactUs" onClick={closeSubLinks}>
               Contact Us
             </NavLink>
           </li>
@@ -85,9 +98,12 @@ const NavBar = () => {
             </button>
           </li>
           <li>
-            <button className="bg-transparent" aria-label="Shopping Cart">
+            <NavLink
+              to="/cart"
+              className="bg-transparent"
+              aria-label="Shopping Cart">
               <img src={cartLogo} alt="Cart" className="h-6" />
-            </button>
+            </NavLink>
           </li>
         </ul>
       </nav>

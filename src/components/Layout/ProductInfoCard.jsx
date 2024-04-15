@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import cartActions from "../../store/cart";
 
 const ProductInfoCard = ({ product, handleClose }) => {
+  const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState(0);
   const [quantity, setQuantity] = useState(1);
 
@@ -14,6 +17,16 @@ const ProductInfoCard = ({ product, handleClose }) => {
 
   const handleOptionClick = (index) => {
     setSelectedOption(index);
+  };
+
+  const handleAddToCart = () => {
+    dispatch(
+      cartActions.addProductWithOptionToCart({
+        product,
+        quantity,
+        selectedOption,
+      })
+    );
   };
 
   return (
@@ -114,7 +127,8 @@ const ProductInfoCard = ({ product, handleClose }) => {
           <button
             className={`mt-4 py-2 bg-blue-500 ${
               product.availability ? "bg-blue-500" : "bg-blue-200"
-            } text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none`}>
+            } text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none`}
+            onClick={handleAddToCart}>
             {product.availability ? "Add to Cart" : "Sold Out"}
           </button>
         </div>

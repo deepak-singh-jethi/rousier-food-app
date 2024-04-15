@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import Modal from "./Modal";
 import ProductInfoCard from "./ProductInfoCard";
+import cartActions from "../../store/cart";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = (isOptionAvailable) => {
     if (isOptionAvailable) {
       setIsModalOpen(true);
     } else {
-      console.log("add product to cart");
+      dispatch(cartActions.addSimpleItemToCart(product));
     }
   };
 

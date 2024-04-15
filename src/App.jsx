@@ -15,6 +15,7 @@ import ContactUs from "./RouterLayout/ContactUs";
 import Blogs from "./components/Blogs";
 import Recipie from "./components/Recipie";
 import ShopLayout from "./RouterLayout/ShopLayout";
+import Cart from "./components/Cart";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,12 +29,13 @@ const router = createBrowserRouter(
         <Route index element={<Community />}></Route>
         <Route path=":id" element={<Blogs />} />
       </Route>
-      <Route path="ourStory" element={<OurStory />} />
-      <Route path="contactUs" element={<ContactUs />} />
       <Route path="shop">
         <Route index element={<ShopLayout />} />
         <Route path=":category" element={<ShopLayout />} />
       </Route>
+      <Route path="ourStory" element={<OurStory />} />
+      <Route path="contactUs" element={<ContactUs />} />
+      <Route path="cart" element={<Cart />} />
     </Route>
   )
 );

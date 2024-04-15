@@ -2,33 +2,50 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
-  totalItems: 0,
-  totalPrice: 0,
 };
 
 export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    // add to cart
-    addToCart: (state, action) => {
+    toggleCartDisplay: (state, action) => {
+      state.isCartOpen = !state.isCartOpen;
+      console.log(state.isCartOpen);
+    },
+    addSimpleItemToCart: (state, action) => {
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
-      state.totalItems += 1;
-      state.totalPrice += newItem.price;
 
       if (existingItem) {
-        existingItem.quantity += newItem.quantity;
+        existingItem.quantity += 1;
       } else {
-        state.items.push({ ...newItem, quantity: 1 });
+        state.items.push({ ...newItem, quantity: 1, selectedOption: 0 });
       }
     },
-    // remove from cart
+    addProductWithOptionToCart: (state, action) => {
+      const productId = action.payload.product.id;
+      const option = action.payload.selectedOption;
+      const quantity = action.payload.quantity;
+
+      const existingItem = state.items.find(
+        (item) => item.id === productId && option === item.selectedOption
+      );
+
+      if (existingItem) {
+        existingItem.quantity = parseInt(quantity);
+      } else {
+        state.items.push({
+          ...action.payload.product,
+          quantity,
+          selectedOption: option,
+        });
+      }
+    },
+
+    // Todo remove from cart
     removeFromCart: (state, action) => {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
-      state.totalItems -= 1;
-      state.totalPrice -= existingItem.price;
 
       if (existingItem.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== id);
@@ -36,19 +53,15 @@ export const cartSlice = createSlice({
         existingItem.quantity -= 1;
       }
     },
-    // clear a cart
+
+    // todo clear  cart
     clearCart: (state) => {
       state.items = [];
-      state.totalItems = 0;
-      state.totalPrice = 0;
     },
-    // remove a pertical item completely from cart
+    //  todo remove a perticular item completely from cart
     removeItem: (state, action) => {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
-      state.totalItems -= existingItem.quantity;
-      state.totalPrice -= existingItem.price * existingItem.quantity;
-
       state.items = state.items.filter((item) => item.id !== id);
     },
   },
