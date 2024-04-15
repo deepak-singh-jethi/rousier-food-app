@@ -25,7 +25,7 @@ export const products = [
     image: girCowGhee,
     category: "Ghee",
     BestSeller: true,
-    id: 1,
+    id: 1345763546,
   },
   {
     name: "Stone Pressed Black Mustard Oil",
@@ -41,7 +41,7 @@ export const products = [
     image: stonePressedBlackMustardOil,
     category: "Oil",
     BestSeller: true,
-    id: 2,
+    id: 223452345,
   },
   {
     name: "Nut Butter",
@@ -57,7 +57,7 @@ export const products = [
     image: nutButter,
     category: "Butter",
     BestSeller: true,
-    id: 3,
+    id: 323452435,
   },
   {
     name: "Wild Forest Honey",
@@ -73,7 +73,7 @@ export const products = [
     image: wildForestHoney,
     category: "Honey",
     BestSeller: true,
-    id: 4,
+    id: 234565676454,
   },
   {
     name: "Amlaprash",
@@ -89,7 +89,7 @@ export const products = [
     image: amlaprash,
     category: "Jam",
     BestSeller: false,
-    id: 5,
+    id: 10005654365,
   },
   {
     name: "Multiflora Honey",
@@ -105,7 +105,7 @@ export const products = [
     image: multiFloraHoney,
     category: "Honey",
     BestSeller: true,
-    id: 6,
+    id: 234635463006,
   },
   {
     name: "Nut Butter dark Chocolate",
@@ -133,7 +133,7 @@ export const products = [
     image: nutButterMixedSeed,
     category: "Butter",
     BestSeller: false,
-    id: 8,
+    id: 1113335468,
   },
   {
     name: "Stone Pressed Groundnut Oil",
@@ -149,7 +149,7 @@ export const products = [
     image: groundNutOil,
     category: "Oil",
     BestSeller: true,
-    id: 9,
+    id: 545637009,
   },
   {
     name: "Stone Pressed Virgin Coconut Oil",
@@ -165,6 +165,6 @@ export const products = [
     image: coconutOil,
     category: "Oil",
     BestSeller: true,
-    id: 10,
+    id: 1349856350,
   },
 ];

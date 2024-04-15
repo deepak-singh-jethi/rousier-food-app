@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { products } from "../../Data/productsData";
 import ProductCard from "../Layout/ProductCard";
 
@@ -10,9 +11,11 @@ const BestSeller = () => {
           Best sellers
         </h1>
         <p>
-          <button className="bg-[#e99f7d] md:px-4 px-2 md:py-2 py-1 rounded-lg text-white md:text-lg text-sm font-bold">
+          <NavLink
+            to="/shop"
+            className="bg-[#e99f7d] md:px-4 px-2 md:py-2 py-1 rounded-lg text-white md:text-lg text-sm font-bold">
             View all Products
-          </button>
+          </NavLink>
         </p>
       </div>
       <div className="w-full overflow-x-hidden md:mt-10 mt-2 mb-16 px-3">

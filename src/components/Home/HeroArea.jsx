@@ -31,8 +31,12 @@ const HeroArea = () => {
       />
       {/* buttons for next and prev */}
       <div className="flex justify-center gap-11">
-        <button onClick={() => handleImage("prev")}>&lt;</button>
-        <button onClick={() => handleImage("next")}>&gt;</button>
+        <button onClick={() => handleImage("prev")} className="text-4xl">
+          &larr;
+        </button>
+        <button onClick={() => handleImage("next")} className="text-4xl">
+          &rarr;
+        </button>
       </div>
     </div>
   );
