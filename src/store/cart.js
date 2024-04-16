@@ -8,61 +8,65 @@ export const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    toggleCartDisplay: (state, action) => {
-      state.isCartOpen = !state.isCartOpen;
-      console.log(state.isCartOpen);
-    },
     addSimpleItemToCart: (state, action) => {
       const newItem = action.payload;
-      const existingItem = state.items.find((item) => item.id === newItem.id);
-
+      const existingItem = state.items.find(
+        (item) => item.id === newItem.product.id
+      );
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        state.items.push({ ...newItem, quantity: 1, selectedOption: 0 });
-      }
-    },
-    addProductWithOptionToCart: (state, action) => {
-      const productId = action.payload.product.id;
-      const option = action.payload.selectedOption;
-      const quantity = action.payload.quantity;
-
-      const existingItem = state.items.find(
-        (item) => item.id === productId && option === item.selectedOption
-      );
-
-      if (existingItem) {
-        existingItem.quantity = parseInt(quantity);
-      } else {
         state.items.push({
-          ...action.payload.product,
-          quantity,
-          selectedOption: option,
+          ...newItem.product,
+          quantity: 1,
+          selectedOption: 0,
         });
       }
     },
 
-    // Todo remove from cart
-    removeFromCart: (state, action) => {
-      const id = action.payload;
-      const existingItem = state.items.find((item) => item.id === id);
+    addProductWithOptionToCart: (state, action) => {
+      const newItem = action.payload;
+      const existingItem = state.items.find(
+        (item) => item.id === newItem.product.id
+      );
 
-      if (existingItem.quantity === 1) {
-        state.items = state.items.filter((item) => item.id !== id);
+      if (existingItem) {
+        console.log(existingItem);
+        existingItem.quantity = newItem.quantity;
+        existingItem.selectedOption = newItem.selectedOption;
       } else {
-        existingItem.quantity -= 1;
+        console.log(newItem.option);
+        state.items.push({
+          ...newItem.product,
+          quantity: newItem.quantity,
+          selectedOption: newItem.selectedOption,
+        });
       }
     },
 
-    // todo clear  cart
-    clearCart: (state) => {
-      state.items = [];
+    decreaseItemQuantity: (state, action) => {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+      if (existingItem.quantity > 1) {
+        existingItem.quantity -= 1;
+      } else if (existingItem.quantity == 1) {
+        state.items = state.items.filter((item) => item.id !== id);
+      }
     },
-    //  todo remove a perticular item completely from cart
-    removeItem: (state, action) => {
+    increaseItemQuantity: (state, action) => {
+      const id = action.payload;
+      const existingItem = state.items.find((item) => item.id === id);
+      existingItem.quantity += 1;
+    },
+
+    removeItemFromCart: (state, action) => {
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       state.items = state.items.filter((item) => item.id !== id);
+    },
+
+    clearCart: (state) => {
+      state.items = [];
     },
   },
 });

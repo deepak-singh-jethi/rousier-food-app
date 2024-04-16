@@ -23,16 +23,16 @@ const ProductInfoCard = ({ product, handleClose }) => {
     handleClose();
     dispatch(
       cartActions.addProductWithOptionToCart({
-        product,
-        quantity,
-        selectedOption,
+        product: product,
+        quantity: quantity,
+        selectedOption: selectedOption,
       })
     );
   };
 
   return (
     <div
-      className="bg-white rounded-lg shadow-lg overflow-hidden "
+      className="bg-white rounded-lg shadow-lg overflow-hidden"
       style={{ scrollbarWidth: "none" }}>
       {/* Name and Close Button */}
       <div className="md:p-6 p-1 flex items-center justify-between sm:bg-gray-100">
@@ -61,15 +61,17 @@ const ProductInfoCard = ({ product, handleClose }) => {
             <div className="flex items-center mt-2">
               <span
                 className={`text-lg font-semibold ${
-                  product.actualPrice !== product.discountedPrice
+                  product.options[selectedOption].actualPrice !==
+                  product.options[selectedOption].discountedPrice
                     ? "text-red-600 line-through"
                     : "text-green-600"
                 }`}>
-                Rs. {product.actualPrice}
+                Rs. {product.options[selectedOption].actualPrice}
               </span>
-              {product.actualPrice !== product.discountedPrice && (
+              {product.options[selectedOption].actualPrice !==
+                product.options[selectedOption].discountedPrice && (
                 <span className="text-lg font-semibold ml-2 text-green-600">
-                  Rs. {product.discountedPrice}
+                  Rs. {product.options[selectedOption].discountedPrice}
                 </span>
               )}
               <span
@@ -98,7 +100,7 @@ const ProductInfoCard = ({ product, handleClose }) => {
                         : "bg-gray-200 text-gray-700"
                     }`}
                     onClick={() => handleOptionClick(index)}>
-                    {option}
+                    {option.size}
                   </button>
                 ))}
               </div>
@@ -129,7 +131,8 @@ const ProductInfoCard = ({ product, handleClose }) => {
             className={`mt-4 py-2 bg-blue-500 ${
               product.availability ? "bg-blue-500" : "bg-blue-200"
             } text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none`}
-            onClick={handleAddToCart}>
+            onClick={handleAddToCart}
+            disabled={!product.availability}>
             {product.availability ? "Add to Cart" : "Sold Out"}
           </button>
         </div>

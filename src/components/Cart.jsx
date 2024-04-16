@@ -1,40 +1,41 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
+import cartActions from "../store/cart";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
 
   const handleRemoveItem = (id) => {
-    // Dispatch action to remove item from cart
+    dispatch(cartActions.removeItemFromCart(id));
   };
 
   const handleClearCart = () => {
-    // Dispatch action to clear cart
+    dispatch(cartActions.clearCart());
   };
 
   const handleIncreaseQuantity = (id) => {
-    // Dispatch action to increase quantity
+    dispatch(cartActions.increaseItemQuantity(id));
   };
 
   const handleDecreaseQuantity = (id) => {
-    // Dispatch action to decrease quantity
+    dispatch(cartActions.decreaseItemQuantity(id));
   };
 
-  const calculateTotalPrice = () => {
-    // Calculate total price of items in cart
-    return cartItems.reduce(
-      (total, item) => total + item.discountedPrice * item.quantity,
-      0
-    );
-  };
+  const calculateTotalPrice = useMemo(() => {
+    return cartItems.reduce((total, item) => {
+      return (
+        total +
+        item.quantity * item.options[item.selectedOption].discountedPrice
+      );
+    }, 0);
+  }, [cartItems]);
 
   return (
-    <div className="cart-container  flex justify-center items-center py-10 md:py-20 lg:py-36">
-      <div className="cart-wrapper bg-white rounded-lg shadow-md w-full max-w-3xl p-6">
-        <h2 className="cart-title text-3xl font-bold mb-6 text-center">
-          Your Cart
-        </h2>
+    <div className="flex justify-center items-center py-10 md:py-20 lg:py-36">
+      <div className="bg-white rounded-lg shadow-md w-full max-w-3xl p-6">
+        <h2 className="text-3xl font-bold mb-6 text-center">Your Cart</h2>
         {cartItems.length === 0 ? (
           <p className="cart-empty text-gray-500 text-center">
             Your cart is empty.
@@ -44,57 +45,61 @@ const Cart = () => {
             {cartItems.map((item) => (
               <div
                 key={item.id}
-                className="cart-item flex items-center justify-between border-b border-gray-200 py-4">
-                <div className="item-details flex items-center space-x-4">
+                className="flex sm:flex-row flex-col gap-6 sm:gap-0 items-center justify-between border-b border-gray-200 py-4">
+                <div className="flex items-center space-x-4">
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="item-image w-16 h-16 object-cover rounded-md"
+                    className="item-image w-20 h-20 object-cover rounded-md"
                   />
                   <div>
                     <p className="item-name text-lg font-semibold">
                       {item.name}
                     </p>
-                    <p className="item-price text-gray-600">{`$${item.discountedPrice}`}</p>
-                    {item.options && (
-                      <p className="item-options text-sm text-gray-500">
-                        Option: {item.options[item.selectedOption]}
-                      </p>
-                    )}
+                    <p className="item-price text-gray-600">
+                      {`${item.options[item.selectedOption].size}: ${
+                        item.options[item.selectedOption].discountedPrice
+                      } Rs`}
+                    </p>
                   </div>
                 </div>
-                <div className="item-actions flex items-center space-x-4">
-                  <button
-                    onClick={() => handleDecreaseQuantity(item.id)}
-                    className="quantity-button text-gray-500 hover:text-gray-700 focus:outline-none">
-                    -
-                  </button>
-                  <span>{item.quantity}</span>
-                  <button
-                    onClick={() => handleIncreaseQuantity(item.id)}
-                    className="quantity-button text-gray-500 hover:text-gray-700 focus:outline-none">
-                    +
-                  </button>
+                <div className="flex items-center space-x-4">
+                  <div className="quantity-buttons flex border border-gray-300 rounded">
+                    <button
+                      onClick={() => handleDecreaseQuantity(item.id)}
+                      className="quantity-button text-gray-500 hover:text-gray-700 focus:outline-none border-r px-2">
+                      <FaMinus size={16} />
+                    </button>
+                    <span className="text-lg font-semibold px-2">
+                      {item.quantity}
+                    </span>
+                    <button
+                      onClick={() => handleIncreaseQuantity(item.id)}
+                      className="text-gray-500 hover:text-gray-700 focus:outline-none border-l px-2">
+                      <FaPlus size={16} />
+                    </button>
+                  </div>
                   <button
                     onClick={() => handleRemoveItem(item.id)}
-                    className="remove-button text-red-500 hover:text-red-700 focus:outline-none">
-                    Remove
+                    className="text-red-500 hover:text-red-700 focus:outline-none">
+                    <FaTrash size={20} />
                   </button>
                 </div>
               </div>
             ))}
-            <div className="cart-summary mt-8 flex justify-between items-center">
+            <div className="mt-8 flex justify-between items-center">
               <button
                 onClick={handleClearCart}
-                className="clear-cart-button text-sm text-red-500 hover:underline focus:outline-none">
+                className="text-sm text-red-500 hover:underline focus:outline-none">
                 Clear Cart
               </button>
               <div>
-                <p className="total-items text-lg font-semibold">
-                  Total Items: {cartItems.length}
+                <p className="text-lg font-semibold">
+                  Total Items:{" "}
+                  {cartItems.reduce((total, item) => total + item.quantity, 0)}
                 </p>
-                <p className="total-price text-lg font-semibold">
-                  Total Price: ${calculateTotalPrice()}
+                <p className="text-lg font-semibold">
+                  Total Price: {calculateTotalPrice} Rs
                 </p>
               </div>
             </div>

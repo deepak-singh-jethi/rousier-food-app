@@ -8,11 +8,13 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleClick = (isOptionAvailable) => {
-    if (isOptionAvailable) {
+  const handleClick = () => {
+    if (product.options.length > 1) {
       setIsModalOpen(true);
     } else {
-      dispatch(cartActions.addSimpleItemToCart(product));
+      dispatch(
+        cartActions.addSimpleItemToCart({ product: product, selectedOption: 0 })
+      );
     }
   };
 
@@ -49,23 +51,25 @@ const ProductCard = ({ product }) => {
             <p className={`text-gray-600 `}>
               <span
                 className={`font-semibold ${
-                  product.actualPrice !== product.discountedPrice
+                  product.options[0].actualPrice !==
+                  product.options[0].discountedPrice
                     ? "line-through text-red-600"
                     : "text-green-500"
                 }`}>
-                Rs: {product.actualPrice} &#x20B9;
+                Rs: {product.options[0].actualPrice} &#x20B9;
               </span>
             </p>
-            {product.actualPrice !== product.discountedPrice && (
+            {product.options[0].actualPrice !==
+              product.options[0].discountedPrice && (
               <p className="text-green-500 font-semibold">
-                Rs: {product.discountedPrice} &#x20B9;
+                Rs: {product.options[0].discountedPrice} &#x20B9;
               </p>
             )}
           </div>
         </div>
         <button
           disabled={!product.availability}
-          onClick={() => handleClick(product.options.length > 1)}
+          onClick={handleClick}
           className={`mt-auto ${
             product.availability ? "bg-yellow-700" : "bg-yellow-200"
           } w-full text-center py-2 text-white font-bold`}>

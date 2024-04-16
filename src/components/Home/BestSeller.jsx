@@ -23,7 +23,7 @@ const BestSeller = () => {
           className="flex overflow-x-scroll container mx-auto gap-4"
           style={{ scrollbarWidth: "none" }}>
           {products.map((product) => {
-            if (product.BestSeller) {
+            if (product.bestSeller) {
               return <ProductCard product={product} key={product.id} />;
             }
           })}
