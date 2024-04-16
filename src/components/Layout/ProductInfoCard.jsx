@@ -1,11 +1,30 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import cartActions from "../../store/cart";
 
 const ProductInfoCard = ({ product, handleClose }) => {
+  const cartItems = useSelector((state) => state.cart.items);
+  //cart item is an array
+  // find an item where from array product.id = item.id and selectedOption = item.selectedOption
+
   const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState(0);
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(0);
+
+  let cartItem;
+  if (cartItems.length > 0) {
+    cartItem = cartItems.find(
+      (item) => item.id === product.id && item.selectedOption === selectedOption
+    );
+  }
+
+  useEffect(() => {
+    if (cartItem) {
+      setQuantity(cartItem.quantity);
+    } else {
+      setQuantity(0);
+    }
+  }, [selectedOption]);
 
   const handleQuantityChange = (operation) => {
     if (operation === "increment") {
