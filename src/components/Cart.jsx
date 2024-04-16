@@ -56,6 +56,11 @@ const Cart = () => {
                       {item.name}
                     </p>
                     <p className="item-price text-gray-600">{`$${item.discountedPrice}`}</p>
+                    {item.options && (
+                      <p className="item-options text-sm text-gray-500">
+                        Option: {item.options[item.selectedOption]}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="item-actions flex items-center space-x-4">

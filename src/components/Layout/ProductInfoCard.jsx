@@ -20,6 +20,7 @@ const ProductInfoCard = ({ product, handleClose }) => {
   };
 
   const handleAddToCart = () => {
+    handleClose();
     dispatch(
       cartActions.addProductWithOptionToCart({
         product,
