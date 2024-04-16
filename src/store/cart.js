@@ -27,7 +27,9 @@ export const cartSlice = createSlice({
     addProductWithOptionToCart: (state, action) => {
       const newItem = action.payload;
       const existingItem = state.items.find(
-        (item) => item.id === newItem.product.id
+        (item) =>
+          item.id === newItem.product.id &&
+          item.selectedOption === newItem.selectedOption
       );
 
       if (existingItem) {
