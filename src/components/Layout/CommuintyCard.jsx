@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const CommunityCard = ({ blog }) => {
   return (
-    <div className="max-w-xs rounded-xl   overflow-hidden shadow-lg m-4 bg-[#c1ff9b] w-full mx-auto ">
+    <div className="max-w-xs rounded-xl   overflow-hidden shadow-lg m-4 bg-[#f9d792] w-full mx-auto ">
       <div className="aspect-w-16 aspect-h-9">
         <img
           className="object-cover object-center w-full h-full"

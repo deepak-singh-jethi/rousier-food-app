@@ -10,6 +10,7 @@ export const cartSlice = createSlice({
   reducers: {
     addSimpleItemToCart: (state, action) => {
       const newItem = action.payload;
+
       const existingItem = state.items.find(
         (item) => item.id === newItem.product.id
       );
@@ -18,7 +19,7 @@ export const cartSlice = createSlice({
       } else {
         state.items.push({
           ...newItem.product,
-          quantity: 1,
+          quantity: newItem.quantity || 1,
           selectedOption: 0,
         });
       }
@@ -26,6 +27,8 @@ export const cartSlice = createSlice({
 
     addProductWithOptionToCart: (state, action) => {
       const newItem = action.payload;
+      console.log(newItem.quantity);
+      console.log(newItem.selectedOption);
       const existingItem = state.items.find(
         (item) =>
           item.id === newItem.product.id &&
@@ -37,7 +40,6 @@ export const cartSlice = createSlice({
         existingItem.quantity = newItem.quantity;
         existingItem.selectedOption = newItem.selectedOption;
       } else {
-        console.log(newItem.option);
         state.items.push({
           ...newItem.product,
           quantity: newItem.quantity,
