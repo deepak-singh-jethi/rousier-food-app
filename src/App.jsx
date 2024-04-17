@@ -17,6 +17,8 @@ import Recipie from "./components/Recipie";
 import ShopLayout from "./RouterLayout/ShopLayout";
 import Cart from "./components/Cart";
 import ProductDetail from "./RouterLayout/ProductDetail";
+import Auth from "./RouterLayout/Auth";
+import CheckOut from "./RouterLayout/CheckOut";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,7 +40,11 @@ const router = createBrowserRouter(
 
       <Route path="ourStory" element={<OurStory />} />
       <Route path="contactUs" element={<ContactUs />} />
-      <Route path="cart" element={<Cart />} />
+      <Route path="cart">
+        <Route index element={<Cart />} />
+        <Route path="checkout" element={<CheckOut />} />
+      </Route>
+      <Route path="auth" element={<Auth>Page Not Found</Auth>} />
     </Route>
   )
 );

@@ -14,7 +14,6 @@ const PromiseData = [
 const OurStory = () => {
   return (
     <>
-      {" "}
       <div className="bg-[#EDE2E3] px-4 py-6 md:px-8 md:py-10 lg:px-12 lg:py-16">
         <div className="container mx-auto flex flex-col md:flex-row gap-10">
           <div className="w-full md:w-1/2">
