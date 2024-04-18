@@ -1,6 +1,6 @@
 import React from "react";
 import { blogPosts } from "../../Data/Blogs";
-import CommuintyCard from "../Layout/CommuintyCard";
+import CommuintyCard from "../shared/CommuintyCard";
 import { NavLink } from "react-router-dom";
 
 const Community = () => {

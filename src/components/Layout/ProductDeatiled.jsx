@@ -4,7 +4,7 @@ import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import cartActions from "../store/cart";
+import cartActions from "../../store/cart";
 
 const ProductDetailed = ({ product, id }) => {
   const dispatch = useDispatch();

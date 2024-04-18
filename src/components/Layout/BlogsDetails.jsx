@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 
 const Blogs = () => {
   const { id } = useParams();
@@ -50,6 +51,13 @@ const Blogs = () => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="mt-5 text-center">
+        <Link
+          to="/community"
+          className="mt-4 text-blue-600 underline text-center font-bold text-3xl ">
+          View All Blogs
+        </Link>
       </div>
     </div>
   );

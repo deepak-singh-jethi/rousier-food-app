@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import cartActions from "../store/cart";
-import ProductDetailed from "../components/ProductDeatiled";
+import ProductDetailed from "../components/Layout/ProductDeatiled";
 
 const ProductDetail = () => {
   const products = useSelector((state) => state.products);

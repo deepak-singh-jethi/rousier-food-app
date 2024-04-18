@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { recipies } from "../../Data/Recipies";
-import RecipeCard from "../Layout/RecipeCard";
+import RecipeCard from "../shared/RecipeCard";
 import { NavLink } from "react-router-dom";
 
 const CookingRosier = () => {

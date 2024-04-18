@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { products } from "../../Data/productsData";
-import ProductCard from "../Layout/ProductCard";
+import ProductCard from "../shared/ProductCard";
 
 const BestSeller = () => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import BaseLayout from "../components/Layout/BaseLayout";
+import BaseLayout from "../components/shared/BaseLayout";
 import { useSelector } from "react-redux";
 
 const LetsCook = () => {

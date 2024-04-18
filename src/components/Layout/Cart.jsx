@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
-import cartActions from "../store/cart";
+import cartActions from "../../store/cart";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -44,9 +44,17 @@ const Cart = () => {
       <div className="bg-white rounded-lg shadow-md w-full max-w-3xl p-6">
         <h2 className="text-3xl font-bold mb-6 text-center">Your Cart</h2>
         {cartItems.length === 0 ? (
-          <p className="cart-empty text-gray-500 text-center">
-            Your cart is empty.
-          </p>
+          <div className="text-center">
+            <p className="cart-empty text-gray-500 text-center my-4">
+              Your cart is empty.
+            </p>
+            <Link
+              to="/shop"
+              className="text-blue-500 font-bold uppercase underline hover:text-blue-800">
+              {" "}
+              Visit shop
+            </Link>
+          </div>
         ) : (
           <div>
             {cartItems.map((item) => (

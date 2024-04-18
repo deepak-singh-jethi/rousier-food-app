@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Recipe = () => {
@@ -79,6 +79,13 @@ const Recipe = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="mt-5 text-center">
+        <Link
+          to="/letsCook"
+          className="mt-4 text-blue-600 underline text-center font-bold text-3xl ">
+          View All Recipies
+        </Link>
       </div>
     </div>
   );

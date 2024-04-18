@@ -13,13 +13,13 @@ const CommunityCard = ({ blog }) => {
         />
       </div>
       <div className="px-6 py-4">
-        <div className="font-bold text-md md:text-xl mb-2">
+        <div className="font-semibold text-md md:text-xl mb-2">
           {blog.title.substring(0, 50) + "..."}
         </div>
         <Link
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 md:py-2 md:px-4 rounded mt-2"
+          className="text-blue-500 hover:text-blue-700 font-bold mt-3 "
           to={`/community/${blog.id}`}>
-          See More
+          See All
         </Link>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Auth from "./Auth";
-import Check from "../components/Check";
+import Check from "../components/Layout/CheckOutPage";
 
 const CheckoutPage = () => {
   const auth = useSelector((state) => state.auth);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import ProductCard from "./Layout/ProductCard";
+import ProductCard from "../shared/ProductCard";
 
 const Shop = ({ category = undefined }) => {
   const products = useSelector((state) => state.products);
