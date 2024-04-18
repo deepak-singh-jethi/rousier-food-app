@@ -4,12 +4,10 @@ import cartActions from "../../store/cart";
 
 const ProductInfoCard = ({ product, handleClose }) => {
   const cartItems = useSelector((state) => state.cart.items);
-  //cart item is an array
-  // find an item where from array product.id = item.id and selectedOption = item.selectedOption
 
   const dispatch = useDispatch();
   const [selectedOption, setSelectedOption] = useState(0);
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   let cartItem;
   if (cartItems.length > 0) {
@@ -22,7 +20,7 @@ const ProductInfoCard = ({ product, handleClose }) => {
     if (cartItem) {
       setQuantity(cartItem.quantity);
     } else {
-      setQuantity(0);
+      setQuantity(1);
     }
   }, [selectedOption]);
 

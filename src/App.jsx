@@ -18,7 +18,7 @@ import ShopLayout from "./RouterLayout/ShopLayout";
 import Cart from "./components/Cart";
 import ProductDetail from "./RouterLayout/ProductDetail";
 import Auth from "./RouterLayout/Auth";
-import CheckOut from "./RouterLayout/CheckOut";
+import CheckOut from "./RouterLayout/CheckOutLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

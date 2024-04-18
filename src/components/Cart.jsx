@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { FaMinus, FaPlus, FaTrash } from "react-icons/fa";
 import cartActions from "../store/cart";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -110,11 +111,11 @@ const Cart = () => {
               </div>
             </div>
             <div className="flex justify-center items-center mt-4 ">
-              <button
+              <Link
                 className="max-w-[120px] bg-blue-500 text-white hover:bg-blue-600 px-3 py-2 rounded-md"
                 onClick={handleChecKOut}>
                 CheckOut
-              </button>
+              </Link>
             </div>
           </div>
         )}

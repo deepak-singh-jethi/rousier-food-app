@@ -81,8 +81,8 @@ const NavBar = () => {
             )}
           </li>
           <li>
-            <NavLink to="/trackOrder" onClick={closeSubLinks}>
-              Track Order
+            <NavLink to="/cart" onClick={closeSubLinks}>
+              Cart
             </NavLink>
           </li>
           <li>
@@ -148,9 +148,9 @@ const NavBar = () => {
               </li>
               <li className="cursor-pointer" onClick={closeSideNav}>
                 <NavLink
-                  to="/trackOrder"
+                  to="/cart"
                   className="block px-4 py-2 rounded-md hover:bg-gray-200">
-                  Track Order
+                  Cart
                 </NavLink>
               </li>
               <li className="cursor-pointer" onClick={closeSideNav}>

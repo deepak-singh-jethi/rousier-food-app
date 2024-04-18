@@ -1,5 +1,11 @@
-import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import React, { useEffect, useState } from "react";
+
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import { signInThunk, signUpThunk } from "../firebase/firebaseAuth";
+
 const validateEmail = (email) => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
@@ -9,7 +15,22 @@ const validatePassword = (password) => {
   return password.length >= 6;
 };
 
-const Auth = () => {
+const Auth = ({ fromCheckoutPage = false }) => {
+  const navigate = useNavigate();
+  const auth = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (auth.token && fromCheckoutPage) {
+      console.log("checkout");
+      navigate("/checkout");
+    }
+    if (auth.token && !fromCheckoutPage) {
+      navigate("/shop");
+    }
+  }, [auth]);
+
+  const dispatch = useDispatch();
+
   const [isSignIn, setIsSignIn] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
@@ -30,7 +51,7 @@ const Auth = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     let newErrors = { email: "", password: "", confirmPassword: "" };
@@ -50,7 +71,15 @@ const Auth = () => {
     setErrors(newErrors);
 
     if (Object.values(newErrors).every((error) => error === "")) {
-      // form submission
+      if (!isSignIn) {
+        dispatch(
+          signUpThunk({ email: formData.email, password: formData.password })
+        );
+      } else {
+        dispatch(
+          signInThunk({ email: formData.email, password: formData.password })
+        );
+      }
     }
   };
 
@@ -108,7 +137,7 @@ const Auth = () => {
           />
           <button
             type="button"
-            className="absolute right-0 top-[50%] flex items-center px-3 bg-transparent text-gray-500 focus:outline-none"
+            className="absolute right-0 top-[55%] flex items-center px-3 bg-transparent text-gray-500 focus:outline-none"
             onClick={togglePasswordVisibility}>
             {showPassword ? <FiEyeOff /> : <FiEye />}
           </button>
@@ -141,9 +170,14 @@ const Auth = () => {
           </div>
         )}
         <div className="flex items-center justify-between flex-col gap-3">
+          {auth.authState.error && (
+            <p className="text-red-500 text-center">{auth.authState.error}</p>
+          )}
           <button
             type="submit"
-            className="w-full bg-blue-500 py-2 px-4 rounded-md text-white font-semibold hover:bg-blue-600 focus:outline-none focus:bg-blue-600">
+            className={`w-full ${
+              auth.authState.isLoading ? "bg-gray-300" : "bg-blue-500"
+            } py-2 px-4 rounded-md text-white font-semibold focus:outline-none`}>
             {isSignIn ? "Sign In" : "Sign Up"}
           </button>
           <button
